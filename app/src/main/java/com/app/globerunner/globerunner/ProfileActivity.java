@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+// Hi
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
