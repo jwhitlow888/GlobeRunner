@@ -7,7 +7,7 @@
         android:title="@string/photos" />
 
     <item
-        android:id="@+id/your_trophies"
+        android:id="@+id/trophies"
         android:icon="@drawable/trophy"
         android:title="@string/trophies" />
 
