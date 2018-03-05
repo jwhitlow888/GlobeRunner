@@ -1,15 +1,22 @@
 package com.app.globerunner.globerunner;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
+
+import com.facebook.AccessToken;
+import com.facebook.Profile;
+import com.facebook.login.widget.ProfilePictureView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    boolean loggedIn;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -18,13 +25,11 @@ public class ProfileActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.photos:
-                    mTextMessage.setText(R.string.photos);
                     return true;
                 case R.id.trophies:
-                    mTextMessage.setText(R.string.trophies);
                     return true;
                 case R.id.map:
-                    mTextMessage.setText(R.string.map);
+                    goToMap();
                     return true;
             }
             return false;
@@ -35,10 +40,19 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
-        mTextMessage = (TextView) findViewById(R.id.message);
+        loggedIn = AccessToken.getCurrentAccessToken() != null;
+        ProfilePictureView profilePicture = findViewById(R.id.profilePic);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        Log.d("Is Logged in?", String.valueOf(loggedIn));
+        if (loggedIn) {
+            profilePicture.setProfileId(Profile.getCurrentProfile().getId());
+        }
+    }
+
+    public void goToMap() {
+        Intent myIntent = new Intent(ProfileActivity.this, MapActivity.class);
+        startActivity(myIntent);
     }
 
 }
