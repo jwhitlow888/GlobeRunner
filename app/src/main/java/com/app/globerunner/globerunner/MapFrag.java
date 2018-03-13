@@ -3,6 +3,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +42,9 @@ public class MapFrag extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
+        Log.v("Map Pos", map.getCameraPosition().toString());
         map.addMarker(new MarkerOptions()
-                .position(new LatLng(0, 0))
+                .position(new LatLng(40,70))
                 .title("Marker"));
     }
 

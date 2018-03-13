@@ -6,5 +6,6 @@
     <string name="profile_settings">Profile Settings</string>
     <string name="facebook_app_id">2082291531787584</string>
     <string name="fb_login_protocol_scheme">fb2082291531787584</string>
+    <string name="default_prof_name">Anonymous User</string>
 </resources>
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/option_get_place"
+        android:icon="@drawable/camera"
+        android:title="@string/photos" />
+
+    <item
+        android:id="@+id/trophies"
+        android:icon="@drawable/trophy"
+        android:title="@string/trophies" />
+
+    <item
+        android:id="@+id/map"
+        android:icon="@drawable/map"
+        android:title="@string/map" />
+
+</menu>

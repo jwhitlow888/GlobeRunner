@@ -35,7 +35,7 @@ public class LoginActivity extends FragmentActivity {
 
         loggedIn = AccessToken.getCurrentAccessToken() != null;
         if (loggedIn)
-            goToProfile();
+            goToMain();
 
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager,
@@ -64,11 +64,11 @@ public class LoginActivity extends FragmentActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
-        goToProfile();
+        goToMain();
     }
 
-    public void goToProfile() {
-        Intent myIntent = new Intent(LoginActivity.this, ProfileActivity.class);
+    public void goToMain() {
+        Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(myIntent);
     }
 
